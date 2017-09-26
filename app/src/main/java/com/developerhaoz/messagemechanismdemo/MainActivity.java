@@ -2,6 +2,7 @@ package com.developerhaoz.messagemechanismdemo;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -14,13 +15,12 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
     private TextView mTvShowInfo;
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
-            if(msg.what == 1){
+            if (msg.what == 1) {
                 String result = msg.obj.toString();
                 mTvShowInfo.setText(result);
             }
@@ -35,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
         mTvShowInfo = (TextView) findViewById(R.id.main_tv_show_info);
         final String url = "http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/48";
 
+        Looper looper = Looper.myLooper();
 
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 Request request = new Request.Builder()
                         .url(url)
                         .build();
+
 
                 try {
                     final Response response = okHttpClient.newCall(request).execute();
