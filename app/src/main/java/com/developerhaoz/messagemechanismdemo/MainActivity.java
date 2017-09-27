@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -31,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Set<Integer> set = new HashSet<>();
+
 
         mTvShowInfo = (TextView) findViewById(R.id.main_tv_show_info);
         final String url = "http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/48";
