@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mTvShowInfo = (TextView) findViewById(R.id.main_tv_show_info);
         final String url = "http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/48";
 
-        Looper looper = Looper.myLooper();
+        Looper looper = handler.getLooper();
 
         handler.post(new Runnable() {
             @Override
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         new Thread(new Runnable() {
             @Override
             public void run() {
