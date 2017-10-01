@@ -2,7 +2,6 @@ package com.developerhaoz.messagemechanismdemo;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -36,11 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         Set<Integer> set = new HashSet<>();
 
-
         mTvShowInfo = (TextView) findViewById(R.id.main_tv_show_info);
         final String url = "http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/48";
-
-        Looper looper = handler.getLooper();
 
         handler.post(new Runnable() {
             @Override
