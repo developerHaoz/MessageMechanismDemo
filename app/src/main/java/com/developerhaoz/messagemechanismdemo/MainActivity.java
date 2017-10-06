@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         Set<Integer> set = new HashSet<>();
 
-        mTvShowInfo = (TextView) findViewById(R.id.main_tv_show_info);
         final String url = "http://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/48";
 
         handler.post(new Runnable() {
